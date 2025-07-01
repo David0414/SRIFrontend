@@ -142,13 +142,20 @@ const MapView = ({ isDarkMode }) => {
       <div style={{ height: "600px" }}>
         <MapContainer center={[20.5888, -100.3899]} zoom={17} style={{ height: '100%', width: '100%' }}>
           <TileLayer
-            attribution='&copy; OpenStreetMap contributors'
+            attribution={
+              isDarkMode
+                ? '&copy; <a href="https://www.mapbox.com/">Mapbox</a>'
+                : '&copy; OpenStreetMap contributors'
+            }
             url={
               isDarkMode
-                ? 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'
+                ? `https://api.mapbox.com/styles/v1/mapbox/navigation-night-v1/tiles/{z}/{x}/{y}?access_token=${import.meta.env.VITE_MAPBOX_TOKEN}`
                 : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
             }
+            tileSize={isDarkMode ? 512 : 256}
+            zoomOffset={isDarkMode ? -1 : 0}
           />
+
           <MapClick />
           {waypoints.map((w, i) => (
             <Marker
