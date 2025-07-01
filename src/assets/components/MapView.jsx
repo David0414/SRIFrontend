@@ -65,7 +65,8 @@ const MapView = ({ isDarkMode }) => {
       obstacles
     };
     try {
-      const res = await axios.post(import.meta.env.VITE_API_URL + '/route', data);
+      const apiBase = import.meta.env.VITE_API_URL;
+      const res = await axios.post(`${apiBase}/route`, data);
 
       setRoutes(res.data.routes);
       setDistancia(res.data.distancia);
