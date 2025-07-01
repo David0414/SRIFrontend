@@ -1,0 +1,17 @@
+body {
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.btn {
+  min-width: 130px;
+}
+
+.map-shadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+}
